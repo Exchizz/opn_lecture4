@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+   opn_manager:
+     build: opn_manager/
+     container_name: opn_manager
+     networks: 
+             - opn_manager
+     volumes:
+             - ${PWD}/opn_manager/cgi/:/usr/lib/cgi-bin/
+             - /var/run/docker.sock:/var/run/docker.sock  
+     restart: always
+
+
+
+networks:
+  opn_manager:
+    driver: "bridge"
